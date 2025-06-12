@@ -4,9 +4,9 @@ import {useState,useEffect} from "react";
 import { useNavigate } from 'react-router-dom';
 
 
-const Login=() =>{
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+const Login=({email,password,setEmail,setPassword}) =>{
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
     const navigate = useNavigate(); // ← これで「遷移する機能」を取得
 
     const handleLogin=(e)=>{
