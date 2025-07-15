@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import ProfileEdit from "../pages/ProfileEdit";
 import { Link } from "react-router-dom";
 
-const UserPage = ({ uploadedFileUrl,setUploadedFileUrl,loginUsername, loginUserId, loginUserEmail,loginUserDisplayname,onUploadSuccess}) => {
+const UserPage = ({ uploadedFileUrl,setUploadedFileUrl,loginUsername, loginUserId, loginUserEmail,loginUserDisplayname,onUploadSuccess,setFile,file}) => {
   const { loginUserIdPass } = useParams();
   const [userExists, setUserExists] = useState(null);//ユーザーが存在するかどうの状態管理理
   const navigate = useNavigate(); // ← これで「遷移する機能」を取得
@@ -42,6 +42,9 @@ const UserPage = ({ uploadedFileUrl,setUploadedFileUrl,loginUsername, loginUserI
 
                 if (response.ok) {
                     console.log(response);
+                    setUploadedFileUrl(null);
+                    setFile(null);
+                    document.getElementById("upload-input").value = "";
                 } else {
                     alert("投稿データの保存に失敗しました");
                 }
